@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginThunk } from '../redux/actions';
+import { getCartThunk, loginThunk } from '../redux/actions';
 import "../styles/nav.css"
+import Cart from './Cart';
 
 const NavBar = () => {
 
@@ -9,6 +10,7 @@ const NavBar = () => {
     const[email,setEmail]= useState("")
     const[password, setPassword]=useState("")
     const[loginError, setLoginError]= useState("")
+    const [isCartOpen, setIsCartOpen]= useState(false)
     const dispatch= useDispatch()
 
   
@@ -25,14 +27,20 @@ const NavBar = () => {
         .catch(error=>{
             setLoginError(error.response.data.message)
         })
-
     }
+
+    const openCart =()=>{
+        setIsCartOpen(!isCartOpen)
+        dispatch(getCartThunk())
+    }
+
 
     return (
         <div className='navbar'>
             <nav>
                 <strong>Products App</strong>
                 <button onClick={()=>setIsLoginOpen(!isLoginOpen)}>Login</button>
+                <button onClick={openCart}>Cart</button>
             </nav>
 
             <form onSubmit={login} className={`login ${isLoginOpen? "open": ""}`} >
@@ -65,6 +73,8 @@ const NavBar = () => {
                     )
                 }
             </form>
+
+            <Cart isCartOpen={isCartOpen}/>
 
         </div>
     );
