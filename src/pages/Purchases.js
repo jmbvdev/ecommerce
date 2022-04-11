@@ -23,9 +23,7 @@ const Purchases = () => {
         <div>
          
          <h1>{purchases.title}</h1>
-         <p>nimodo usar estos
-        
-         </p>
+       
            
         </div>
     );
