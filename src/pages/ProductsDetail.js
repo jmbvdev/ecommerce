@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { addCartThunk, getCartThunk, getProductsThunk } from '../redux/actions';
+import { addCartThunk, getProductsThunk } from '../redux/actions';
 import "../styles/products.css"
 
 const ProductsDetail = () => {

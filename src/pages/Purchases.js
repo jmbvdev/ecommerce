@@ -1,11 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getPurchasesThunk } from '../redux/actions';
 import "../styles/purchases.css"
 
 const Purchases = () => {
-    const dispatch= useDispatch()
+
     const [purchases, setPurchases]= useState("")
 
     const getConfig = () => ({
@@ -16,7 +14,7 @@ const Purchases = () => {
          axios.get("https://ecommerce-api-react.herokuapp.com/api/v1/purchases", getConfig())
         .then(res=>setPurchases(res.data.data.purchases[0].cart.products[0]))
     },[])
- console.log(purchases)
+
  
 
     return (
@@ -24,7 +22,7 @@ const Purchases = () => {
          
          <h1>{purchases.title}</h1>
        
-           
+           <h2>añado esto para solucionar</h2>
         </div>
     );
 };
