@@ -19,10 +19,12 @@ const Cart = ({isCartOpen, setIsCartOpen}) => {
  
     return (
         <div className={`cart-modal ${isCartOpen ? "open": ""}`}>
+    
             <button onClick={()=>setIsCartOpen(false)} className='close-cart'><i className="fa-solid fa-x"></i></button>
             <div className='cart'>
                 <ul className='cart-products-list'>
                 <h4>My purchases</h4>
+             
                 {
                     products.map(product=>(
                         

@@ -1,3 +1,4 @@
+
 .navbar{
     position: relative;
     display: flex;
@@ -13,14 +14,12 @@
     padding: 20px;
     position: absolute;
     transform: scale(0);
-    transform: scale(0);
-   transform-origin: top;
    background: #fff;
     transform-origin: top;
     transition: .5s ease-in-out;
     width: 300px;
     z-index: 9;
-    left: 15px;
+    right: 20px;
 }
 .login.open{
     transform: scale(1);
@@ -53,6 +52,52 @@
     color: inherit;
     cursor: pointer;
 }
+.test-data{
+    background: #d8f5fd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding: 12px;
+}
+.test-data strong{
+    display: block;
+    margin-bottom: 8px;
+    text-align: center;
+}
+.field{
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+}
+.field i{
+    font-size: 1rem;
+    padding: 10px;
+    margin-right: 13px;
+   
+}
+.input-login{
+    margin-bottom: 20px;
+}
+.input-login input{
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 3px;
+    display: block;
+    margin-top: 4px;
+    padding: 6px 8px;
+    width: 100%;
+}
+.login-submit{
+    background: #f85555;
+    color: #fff;
+    margin: 10px 0 25px;
+    padding: 9px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.login-submit:hover{
+    background: #f37676;
+}
 
 @media only screen and (min-width: 600px) {
     .nav-title{
@@ -71,5 +116,8 @@
         cursor: pointer;
         font-size: 1.2rem;
     
+    }
+    .login {
+        right: 20%;
     }
    }

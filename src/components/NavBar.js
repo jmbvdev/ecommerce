@@ -55,10 +55,12 @@ const NavBar = () => {
                 <div className='test-data'>
                     <strong>test data</strong>
                     <div className='field'>
-                       <i class="fa-solid fa-envelope"><p>john@gmail.com</p> </i>
+                       <i class="fa-solid fa-envelope"></i>
+                       <p>john@gmail.com</p>
                     </div>
                     <div className='field'>
-                    <i class="fa-solid fa-lock"> <p>john1234</p></i>
+                    <i class="fa-solid fa-lock"></i>
+                    <p>john1234</p>
 
                     </div>
 
@@ -71,22 +73,28 @@ const NavBar = () => {
                     </button>
                     ):(
                         <>
-                        <input
-                        type="email"
-                        placeholder='email'
-                        onChange={e=>setEmail(e.target.value)}
-                        value={email}
-                        />
+                        <div className='input-login'>
+                            <label htmlFor="email">Email</label>
+                            <input
+                            type="email"
+                            onChange={e=>setEmail(e.target.value)}
+                            value={email}
+                            />
+
+                        </div>
+                        <div className='input-login'>
+                            <label htmlFor="password">Password</label>
+                            <input
+                            type="password"
+                            onChange={e=>setPassword(e.target.value)}
+                            value={password}
+                            />
+
+                        </div>
         
-                        <input
-                        type="password"
-                        placeholder='password'
-                        onChange={e=>setPassword(e.target.value)}
-                        value={password}
-                        />
                         <p>{loginError}</p>
                 
-                        <button>Submit</button>
+                        <button className='login-submit'>Submit</button>
                         </>
 
                     )

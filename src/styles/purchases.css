@@ -49,21 +49,7 @@
     text-align: center;
     width: 17%;
 }
-.test-data{
-    background: #d8f5fd;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    padding: 12px;
-}
-.field{
-    margin-bottom: 6px;
-    display: flex;
-}
-.field i{
-    font-size: 1rem;
-    margin-right: 13px;
-   
-}
+
 
 @media only screen and (min-width: 575px) {
     .purchases{
