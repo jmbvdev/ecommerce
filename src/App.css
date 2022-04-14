@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0 ;
+    box-sizing: border-box;
+    font-family: "Yantramanav";
+   
+}
+footer{
+    background: #3c3c3b;
+    padding: 91px 0;
+    color: #fff;
+    font-family: "Yantramanav",sans-serif;
+}
+footer .copyright{
+    font-size: 1rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+footer .social-network{
+    text-align: center;
+}
+footer .social-network a{
+    background: #50504f;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 1.2rem;
+    height: 40px;
+    line-height: 2.2;
+    margin: 0 10px;
+    text-decoration: none;
+    width: 40px;
+}
+
+.social-network i{
+    color: #fff;
+}

@@ -1,0 +1,73 @@
+.purchases{
+    margin: 0 auto;
+    padding: 13px 20px;
+}
+.purchases h1{
+    color: #515151;
+    font-family: "Yantramanav",sans-serif;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+}
+
+.purchase-item{
+    border: 1px solid #dcd9d9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.header{
+    color: #515151;
+    font-family: "Yantramanav",sans-serif;
+    border-bottom: 1px solid  #dcd9d9;
+    padding: 10px;
+}
+ .purchase-list{
+    padding: 30px 10px 10px;
+ }
+ .purchase-products{
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: 60px;
+    margin-bottom: 20px;
+ }
+ .purchase-products .name-purchase{
+    font-size: .8rem;
+    width: 40%;
+ }
+.purchase-products .quantity-purchase{
+    padding: 0 10px;
+    width: 40px;
+    width: 20%;
+    margin: 30px;
+    border: 1px solid #dcd9d9;
+    max-width: 65px;
+    text-align: center;
+}
+.purchase-products .price-purchase{
+    text-align: center;
+    width: 17%;
+}
+.test-data{
+    background: #d8f5fd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding: 12px;
+}
+.field{
+    margin-bottom: 6px;
+    display: flex;
+}
+.field i{
+    font-size: 1rem;
+    margin-right: 13px;
+   
+}
+
+@media only screen and (min-width: 575px) {
+    .purchases{
+        max-width: 500px
+    }
+
+   }

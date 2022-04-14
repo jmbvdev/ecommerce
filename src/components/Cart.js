@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { checkProductThunk, deleteProductThunk } from '../redux/actions';
 import "../styles/cart.css"
 
-const Cart = ({isCartOpen}) => {
+const Cart = ({isCartOpen, setIsCartOpen}) => {
     const products = useSelector(state=>state.productsCart)
     const navigate= useNavigate()
     const dispatch= useDispatch()
@@ -19,22 +19,37 @@ const Cart = ({isCartOpen}) => {
  
     return (
         <div className={`cart-modal ${isCartOpen ? "open": ""}`}>
-            My purchases
-            <ul className='cart-list'>
-            {
-                products.map(product=>(
-                    <li key={product.id} onClick={()=>navigate(`./products/${product.id}`)}>
-                        <h4>{product.brand}</h4>
-                        <p>{product.title}</p>
-                        <p>{product.price}</p>
-                        <hr />
-                        <button onClick={()=>dispatch(deleteProductThunk(product.productsInCart.productId))}>Delete</button>
-                    </li>
-                ))
-            }
+            <button onClick={()=>setIsCartOpen(false)} className='close-cart'><i className="fa-solid fa-x"></i></button>
+            <div className='cart'>
+                <ul className='cart-products-list'>
+                <h4>My purchases</h4>
+                {
+                    products.map(product=>(
+                        
+                        <li key={product.id} onClick={()=>navigate(`./products/${product.id}`)} className="products-list">
+                            <div className='cart-info'>
+                                <div className='cart-details'>
+                                    <span>{product.brand}</span>
+                                    <p>{product.title}</p>
+                                    <div className='cart-quantity'>{product?.productsInCart?.quantity}</div>
+                                </div>
+                                <div className='delete-btn'> <button onClick={()=>dispatch(deleteProductThunk(product.productsInCart.productId))}><i className="fa-solid fa-trash-can"></i></button></div>
+                            
+                            </div>
+                            <div className='total'>
+                                <span>Total: </span>
+                                <b>{product.price}$</b>
+                            </div>
+                         
+                            <hr />
+                        </li>
+                    ))
+                }
 
-            </ul>
-            <button onClick={checkProduct}>Checkout</button>
+                <button className='buy-btn' onClick={checkProduct}>Checkout</button>
+                </ul>
+
+            </div>
         </div>
     );
 };

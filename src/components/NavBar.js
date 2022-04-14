@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getCartThunk, loginThunk } from '../redux/actions';
 import "../styles/nav.css"
 import Cart from './Cart';
@@ -12,6 +13,7 @@ const NavBar = () => {
     const[loginError, setLoginError]= useState("")
     const [isCartOpen, setIsCartOpen]= useState(false)
     const dispatch= useDispatch()
+    const navigate= useNavigate()
 
   
 
@@ -36,14 +38,31 @@ const NavBar = () => {
 
 
     return (
-        <div className='navbar'>
-            <nav>
-                <strong>Products App</strong>
-                <button onClick={()=>setIsLoginOpen(!isLoginOpen)}>Login</button>
-                <button onClick={openCart}>Cart</button>
+        <div >
+            <nav className='navbar'>
+                <div className='nav-title'>
+                    <strong onClick={()=>navigate("/")}> e-commerse</strong>
+                </div>
+
+                <div className='nav-buttons'>
+                    <button onClick={()=>setIsLoginOpen(!isLoginOpen)}><i className="fa-solid fa-user"></i></button>
+                    <button onClick={()=>navigate("/purchases")}><i className="fa-solid fa-basket-shopping"></i></button>
+                    <button onClick={openCart}><i className="fa-solid fa-cart-shopping"></i></button>
+                </div>
             </nav>
 
             <form onSubmit={login} className={`login ${isLoginOpen? "open": ""}`} >
+                <div className='test-data'>
+                    <strong>test data</strong>
+                    <div className='field'>
+                       <i class="fa-solid fa-envelope"><p>john@gmail.com</p> </i>
+                    </div>
+                    <div className='field'>
+                    <i class="fa-solid fa-lock"> <p>john1234</p></i>
+
+                    </div>
+
+                </div>
 
                 {
                     localStorage.getItem("token")? (
@@ -74,7 +93,7 @@ const NavBar = () => {
                 }
             </form>
 
-            <Cart isCartOpen={isCartOpen}/>
+            <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/>
 
         </div>
     );

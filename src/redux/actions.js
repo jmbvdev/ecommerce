@@ -42,7 +42,7 @@ export const getProductsThunk=()=>{
     return dispatch=>{
         dispatch(setIsLoading(true))
         return axios.get("https://ecommerce-api-react.herokuapp.com/api/v1/products")
-        .then(res=> dispatch(setProducts(res.data.data.products)))
+        .then(res=> dispatch(setProducts(res.data?.data?.products)))
         .finally(()=>dispatch(setIsLoading(false)))
     }
 }
@@ -51,7 +51,7 @@ export const getCategoriesThunk=()=>{
     return dispatch=>{
         dispatch(setIsLoading(true))
         return axios.get("https://ecommerce-api-react.herokuapp.com/api/v1/products/categories")
-        .then(res=> dispatch(setCategories(res.data.data.categories)))
+        .then(res=> dispatch(setCategories(res.data?.data?.categories)))
         .finally(()=>dispatch(setIsLoading(false)))
     }
 }
@@ -60,7 +60,7 @@ export const filterCategoryThunk=id=>{
     return dispatch=>{
         dispatch(setIsLoading(true))
         return axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products?category=${id}`)
-        .then(res=> dispatch(setProducts(res.data.data.products)))
+        .then(res=> dispatch(setProducts(res.data?.data?.products)))
         .finally(()=>dispatch(setIsLoading(false)))
     }
 }
@@ -69,7 +69,7 @@ export const filterProductThunk=product=>{
     return dispatch=>{
         dispatch(setIsLoading(true))
         return axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products?query=${product}`)
-        .then(res=> dispatch(setProducts(res.data.data.products)))
+        .then(res=> dispatch(setProducts(res.data?.data?.products)))
         .finally(()=>dispatch(setIsLoading(false)))
     }
 }
@@ -86,7 +86,6 @@ export const addCartThunk=items=>{
     return dispatch=>{
         dispatch(setIsLoading(true))
         return axios.post("https://ecommerce-api-react.herokuapp.com/api/v1/cart", items, getConfig())
-        .then(()=> dispatch(getCartThunk()))
         .finally(()=>dispatch(setIsLoading(false)))
     }
 }
@@ -95,7 +94,7 @@ export const getCartThunk=()=>{
     return dispatch=>{
         dispatch(setIsLoading(true))
         return axios.get("https://ecommerce-api-react.herokuapp.com/api/v1/cart", getConfig())
-        .then(res=>dispatch(setProductsCart(res.data.data.cart.products)))
+        .then(res=>dispatch(setProductsCart(res?.data?.data?.cart?.products)))
         .finally(()=>dispatch(setIsLoading(false)))
     }
 }
@@ -112,7 +111,13 @@ export const deleteProductThunk=id=>{
 export const checkProductThunk=()=>{
     return dispatch=>{
         dispatch(setIsLoading(true))
-        return axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/purchases`, {}, getConfig())
+        return axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/purchases`, {
+            street: "Green St. 1456",
+            colony: "Southwest",
+            zipCode: 12345,
+            city: "USA",
+            references: "Some references"
+        }, getConfig())
         .finally(()=>dispatch(setIsLoading(false)))
     }
 }
@@ -121,7 +126,7 @@ export const getPurchasesThunk=()=>{
     return dispatch=>{
         dispatch(setIsLoading(true))
         return axios.get("https://ecommerce-api-react.herokuapp.com/api/v1/purchases", getConfig())
-        .then(res=>dispatch(setPurchases(res.data.data.purchases)))
+        .then(res=>dispatch(setPurchases(res.data?.data?.purchases)))
         .finally(()=>dispatch(setIsLoading(false)))
     }
 }

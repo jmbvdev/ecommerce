@@ -1,17 +1,75 @@
 .navbar{
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    z-index: 9;
 }
 
 .login{
-position: absolute;
-bottom: -170px;
-padding: 20px;
-background: #fff;
-box-shadow: 2px 2px 8px rgba(0,0,0,.3);
-transform: scale(0);
-transition: .8s;
-transform-origin: top;
+
+    box-shadow: 0 8px 24px hsl(210deg 8% 62% / 20%);
+    max-height: 90vh;
+    padding: 20px;
+    position: absolute;
+    transform: scale(0);
+    transform: scale(0);
+   transform-origin: top;
+   background: #fff;
+    transform-origin: top;
+    transition: .5s ease-in-out;
+    width: 300px;
+    z-index: 9;
+    left: 15px;
 }
 .login.open{
     transform: scale(1);
 }
+
+.nav-buttons button{
+    background: none;
+    border: none;
+    color: #ababab;
+    font-size: 1.4rem;
+    line-height: 0;
+    padding: 15px;
+    padding-right: 20px;
+    text-align: center;
+    width: 15%;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+
+}
+.nav-title{
+    color: #f85555;
+    display: block;
+    flex: 1 1;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 12px 20px;
+}
+.nav-title strong{
+    color: inherit;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+    .nav-title{
+        font-size: 2rem;
+    }
+    .nav-buttons button{
+    
+        color: #ababab;
+        font-size: 2rem;
+        line-height: 2;
+        padding: 10px;
+        padding-right: 80px;
+        text-align: center;
+        width: 15%;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+    
+    }
+   }
